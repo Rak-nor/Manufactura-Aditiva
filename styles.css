@@ -73,7 +73,7 @@ body {
 .hero {
     text-align: center;
     padding: 180px 20px 120px;
-    background: url('img/hero-bg.jpg') no-repeat center center/cover;
+    background: url('hero-bg.jpg') no-repeat center center/cover;
 }
 
 .welcome {
@@ -146,15 +146,15 @@ body {
 }
 
 .servicio-1 {
-    background-image: url('img/fondo-servicio-1.jpg');
+    background-image: url('fondo-servicio-1.jpg');
 }
 
 .servicio-2 {
-    background-image: url('img/fondo-servicio-2.jpg');
+    background-image: url('fondo-servicio-2.jpg');
 }
 
 .servicio-3 {
-    background-image: url('img/fondo-servicio-3.jpg');
+    background-image: url('fondo-servicio-3.jpg');
 }
 
 .servicio h3 {
