@@ -4,387 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manufactura Aditiva Pro</title>
-    <style>
-        :root {
-            --primary-color: #2d3436;
-            --accent-color: #0984e3;
-            --bg-color: #f0f4f8;
-            --text-color: #2d3436;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Menú Hamburguesa */
-        .nav-container {
-            position: fixed;
-            top: 25px;
-            right: 25px;
-            z-index: 1000;
-        }
-
-        .menu-toggle {
-            width: 35px;
-            height: 25px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .menu-toggle span {
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .nav-links {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 40px;
-            background-color: rgba(255, 255, 255, 0.98);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            min-width: 200px;
-        }
-
-        .nav-links.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .nav-links a {
-            display: block;
-            margin: 15px 0;
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        /* Sección Hero */
-        .hero {
-            text-align: center;
-            padding: 180px 20px 120px;
-            background: linear-gradient(45deg, #6c7a89, #a3b1bf);
-        }
-
-        .welcome {
-            font-size: 1.2rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-            letter-spacing: 3px;
-        }
-
-        .main-title {
-            font-size: 4rem;
-            color: white;
-            margin: 30px 0;
-        }
-
-        .logo-container {
-            margin: 60px auto;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .logo {
-            width: 280px;
-            height: auto;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
-            transition: all 0.3s ease;
-        }
-
-        .slogan {
-            font-size: 1.8rem;
-            color: white;
-            max-width: 800px;
-            margin: 40px auto 0;
-            line-height: 1.4;
-            opacity: 0.9;
-            transition: all 0.3s ease;
-        }
-
-        /* Sección Servicios */
-        .servicios {
-            padding: 100px 20px;
-            background-color: white;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 50px;
-        }
-
-        .servicio {
-            max-width: 850px;
-            margin: 0 auto 120px;
-            padding: 50px;
-            background-color: var(--bg-color);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .servicio:hover {
-            transform: translateY(-8px);
-        }
-
-        .servicio h3 {
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            color: var(--accent-color);
-            text-align: center;
-        }
-
-        .boton-portafolio {
-            display: block;
-            width: 200px;
-            margin: 30px auto 0;
-            padding: 14px 35px;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Sección Proyectos */
-        .proyectos {
-            padding: 100px 20px;
-        }
-
-        .video-container {
-            max-width: 1100px;
-            margin: 0 auto 120px;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        video {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-        }
-
-        /* Footer */
-        footer {
-            padding: 80px 20px 40px;
-            text-align: center;
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .whatsapp-text {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 50px;
-        }
-
-        /* Botón WhatsApp */
-        .whatsapp-container {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 15px;
-            z-index: 1000;
-        }
-
-        .whatsapp-btn {
-            background-color: #25D364;
-            padding: 18px;
-            border-radius: 50%;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-btn img {
-            width: 45px;
-            height: 45px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.4rem;
-            }
-            
-            .logo {
-                width: 200px;
-            }
-            
-            .servicio {
-                padding: 30px;
-                margin-bottom: 80px;
-            }
-            
-            video {
-                height: 300px;
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Menú -->
-    <nav class="nav-container">
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-links" id="navLinks">
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#proyectos">Proyectos</a>
-        </div>
-    </nav>
+    <!-- Menú Hamburguesa -->
+    <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+        <ul class="menu-items">
+            <li><a href="#proyectos">Proyectos Destacados</a></li>
+            <li><a href="#servicios">Nuestros Servicios</a></li>
+            <li><a href="portfolio-fdm.html">Portafolio FDM</a></li>
+            <li><a href="portfolio-sla.html">Portafolio SLA</a></li>
+            <li><a href="portfolio-laser.html">Portafolio Corte Laser</a></li>
+            <li><a href="metodologia.html">Metodología</a></li>
+            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+        </ul>
+    </div>
 
-    <!-- Hero Section -->
+    <!-- Sección Hero -->
     <section class="hero" id="inicio">
         <h2 class="welcome">Bienvenidos!</h2>
         <h1 class="main-title">Manufactura Aditiva</h1>
         <div class="logo-container">
-            <img src="logo.png" alt="Logo" class="logo">
+            <img src="img/logo.gif" alt="Logo" class="logo" loading="lazy">
         </div>
         <p class="slogan">Hacemos de tu idea o proyecto un prototipo tangible</p>
     </section>
 
-    <!-- Servicios -->
-    <section class="servicios" id="servicios">
-        <h2 class="section-subtitle">Nuestros Servicios</h2>
+    <!-- Sección Proyectos -->
+    <section class="proyectos" id="proyectos">
+        <h2 class="section-subtitle">Proyectos Destacados</h2>
         
-        <div class="servicio">
-            <h3>Impresión FDM</h3>
-            <p>Creación de diseños modernos y funcionales con materiales termoplásticos como el Pet Reciclado, Pet G y PLA.</p>
-            <a href="portfolio-fdm.html" class="boton-portafolio">Ver Portafolio</a>
+        <div class="proyecto">
+            <video class="video-proyecto" controls poster="img/proyecto1-cover.jpg" loading="lazy">
+                <source src="video/proyecto1.mp4" type="video/mp4">
+            </video>
+            <h3>Casco IronMan Impreso en Filamento PLA</h3>
+            <p>Desarrollo de prototipo con movimiento mecánico automatizado</p>
         </div>
 
-        <div class="servicio">
-            <h3>IMPRESION LSA</h3>
-            <p>Creación de diseños modernos y funcionales con material de Resina.</p>
-            <a href="portfolio-lsa.html" class="boton-portafolio">Ver Portafolio</a>
+        <div class="proyecto">
+            <video class="video-proyecto" controls poster="img/proyecto2-cover.jpg" loading="lazy">
+                <source src="video/proyecto2.mp4" type="video/mp4">
+            </video>
+            <h3>Esqueleto Humano Impreso en Resina escala 1:2</h3>
+            <p>Fue desarrollado para realizar practicas de Perito Criminalista Forense</p>
         </div>
 
-        <div class="servicio">
-            <h3>Corte y Grabado Laser</h3>
-            <p>Grabado Láser en diferentes materiales y Corte Laser en MDF 3mm y Triplay 5mm.</p>
-            <a href="portfolio-laser.html" class="boton-portafolio">Ver Portafolio</a>
+        <div class="proyecto">
+            <video class="video-proyecto" controls poster="img/proyecto3-cover.jpg" loading="lazy">
+                <source src="video/proyecto3.mp4" type="video/mp4">
+            </video>
+            <h3>Grabado laser en Meterial de Piel sintética</h3>
+            <p>Desarrollo de idea para personalizar una agenda</p>
         </div>
     </section>
 
-    <!-- Proyectos Destacables -->
-    <section class="proyectos" id="proyectos">
-        <h2 class="section-subtitle">Proyectos Destacables</h2>
+    <!-- Sección Servicios -->
+    <section class="servicios" id="servicios">
+        <h2 class="section-subtitle">Nuestros Servicios</h2>
         
-        <div class="video-container">
-            <video controls poster="proyecto1-cover.jpg">
-                <source src="proyecto1.mp4" type="video/mp4">
-            </video>
-            <h3 class="video-title">Prototipo Industrial</h3>
-            <p class="video-description">Desarrollo de componentes mecánicos funcionales</p>
-        </div>
- <div class="video-container">
-            <video controls poster="proyecto2-cover.jpg">
-                <source src="proyecto2.mp4" type="video/mp4">
-            </video>
-            <h3 class="video-title">Prototipo Industrial</h3>
-            <p class="video-description">Desarrollo de componentes mecánicos funcionales</p>
+        <div class="servicio servicio-1">
+            <h3>Impresión FDM</h3>
+            <p>Creación de diseños modernos y funcionales con materiales termoplásticos como el Pet Reciclado, Pet G y PLA.</p>
+            <a href="portfolio-fdm.html" class="boton">Ver Portafolio</a>
         </div>
 
-         </div>
- <div class="video-container">
-            <video controls poster="proyecto3-cover.jpg">
-                <source src="proyecto3.mp4" type="video/mp4">
-            </video>
-            <h3 class="video-title">Prototipo Industrial</h3>
-            <p class="video-description">Desarrollo de componentes mecánicos funcionales</p>
+        <div class="servicio servicio-2">
+            <h3>IMPRESION SLA</h3>
+            <p>Creación de diseños modernos y funcionales con material de Resina.</p>
+            <a href="portfolio-sla.html" class="boton">Ver Portafolio</a>
         </div>
-<!-- Repetir para otros 2 proyectos -->
+
+        <div class="servicio servicio-3">
+            <h3>Corte y Grabado Laser</h3>
+            <p>Grabado Láser en diferentes materiales y Corte Laser en MDF 3mm y Triplay 5mm.</p>
+            <a href="portfolio-laser.html" class="boton">Ver Portafolio</a>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p class="whatsapp-text">Contáctanos por WhatsApp</p>
-        <p class="copyright">2023 ManufacturaAditiva.com.mx
-Todos los derechos reservados</p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#proyectos">Proyectos Destacados</a>
+                <a href="#servicios">Nuestros Servicios</a>
+                <a href="portfolio-fdm.html">Portafolio FDM</a>
+                <a href="portfolio-sla.html">Portafolio SLA</a>
+                <a href="portfolio-laser.html">Portafolio Corte Laser</a>
+                <a href="metodologia.html">Metodología</a>
+                <a href="quienes-somos.html">Quiénes Somos</a>
+            </div>
+            <div class="footer-logo">
+                <img src="img/logo.gif" alt="Logo" class="logo-footer" loading="lazy">
+            </div>
+        </div>
+        <p class="contacto-text">Contáctanos por WhatsApp</p>
+        <p class="copyright">2021 ManufacturaAditiva.com.mx Todos los derechos reservados</p>
     </footer>
 
     <!-- Botón WhatsApp -->
-    <div class="whatsapp-container">
-        <a href="https://wa.me/525658685585" class="whatsapp-btn" target="_blank">
-            <img src="whatsapp-icon.svg" alt="WhatsApp">
-        </a>
-    </div>
+    <a href="https://wa.me/525658685585" class="whatsapp-btn" target="_blank" aria-label="Contacto por WhatsApp">
+        <img src="img/whatsapp-icon.svg" alt="WhatsApp" class="whatsapp-icon">
+    </a>
 
-    <script>
-        // Animaciones de Scroll
-        window.addEventListener('scroll', () => {
-            const logo = document.querySelector('.logo');
-            const slogan = document.querySelector('.slogan');
-            const scrollY = window.scrollY;
-
-            // Animación Logo
-            const logoScale = Math.min(2.5, 1 + scrollY * 0.0015);
-            logo.style.transform = `scale(${logoScale})`;
-
-            // Animación Slogan
-            const sloganScale = Math.min(1.2, 1 + scrollY * 0.0005);
-            const sloganOpacity = 1 - (scrollY * 0.002);
-            slogan.style.transform = `scale(${sloganScale})`;
-            slogan.style.opacity = Math.max(0.5, sloganOpacity);
-        });
-
-        // Menú Hamburguesa
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
