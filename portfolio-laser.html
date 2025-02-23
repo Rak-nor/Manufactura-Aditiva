@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Corte Laser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            gap: 30px; /* Espacio entre imágenes */
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover; /* Ajusta la imagen al contenedor */
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú Hamburguesa -->
+    <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+        <ul class="menu-items">
+            <li><a href="index.html#proyectos">Proyectos Destacados</a></li>
+            <li><a href="index.html#servicios">Nuestros Servicios</a></li>
+            <li><a href="portfolio-fdm.html">Portafolio FDM</a></li>
+            <li><a href="portfolio-sla.html">Portafolio SLA</a></li>
+            <li><a href="portfolio-laser.html">Portafolio Corte Laser</a></li>
+            <li><a href="metodologia.html">Metodología</a></li>
+            <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+        </ul>
+    </div>
+
+    <a href="index.html" class="back-btn">← Volver</a>
+    <h1 class="section-subtitle" style="padding-top: 100px">Portafolio de Corte Laser</h1>
+    
+    <!-- Contenedor de la galería -->
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="img/laser1.jpg" alt="Proyecto 1">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser2.jpg" alt="Proyecto 2">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser3.jpg" alt="Proyecto 3">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser4.jpg" alt="Proyecto 4">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser5.jpg" alt="Proyecto 5">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser6.jpg" alt="Proyecto 6">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser7.jpg" alt="Proyecto 7">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser8.jpg" alt="Proyecto 8">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser9.jpg" alt="Proyecto 9">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser10.jpg" alt="Proyecto 10">
+        </div>
+        <!-- Imágenes adicionales -->
+        <div class="gallery-item">
+            <img src="img/laser11.jpg" alt="Proyecto 11">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser12.jpg" alt="Proyecto 12">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser13.jpg" alt="Proyecto 13">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser14.jpg" alt="Proyecto 14">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser15.jpg" alt="Proyecto 15">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser16.jpg" alt="Proyecto 16">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser17.jpg" alt="Proyecto 17">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser18.jpg" alt="Proyecto 18">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser19.jpg" alt="Proyecto 19">
+        </div>
+        <div class="gallery-item">
+            <img src="img/laser20.jpg" alt="Proyecto 20">
+        </div>
+    </div>
+
+    <script>
+        // Animación de imágenes
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.transform = `
+                        translateY(${Math.random() * 40 - 20}px)
+                        rotate(${Math.random() * 8 - 4}deg)
+                    `;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#proyectos">Proyectos Destacados</a>
+                <a href="#servicios">Nuestros Servicios</a>
+                <a href="portfolio-fdm.html">Portafolio FDM</a>
+                <a href="portfolio-sla.html">Portafolio SLA</a>
+                <a href="portfolio-laser.html">Portafolio Corte Laser</a>
+                <a href="metodologia.html">Metodología</a>
+                <a href="quienes-somos.html">Quiénes Somos</a>
+            </div>
+            <div class="footer-logo">
+                <img src="img/logo.gif" alt="Logo" class="logo-footer" loading="lazy">
+            </div>
+        </div>
+        <p class="contacto-text">Contáctanos por WhatsApp</p>
+        <p class="copyright">2021 ManufacturaAditiva.com.mx Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Botón WhatsApp -->
+    <a href="https://wa.me/525658685585" class="whatsapp-btn" target="_blank" aria-label="Contacto por WhatsApp">
+        <img src="img/whatsapp-icon.svg" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+    <script src="main.js"></script>
+</body>
+</html>

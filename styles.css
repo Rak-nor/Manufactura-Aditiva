@@ -1,0 +1,329 @@
+:root {
+    --primary-color: #2d3436;
+    --accent-color: #0984e3;
+    --bg-color: #f0f4f8;
+    --text-color: #2d3436;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Menú Hamburguesa */
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.hamburger-menu i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.menu-items {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    padding: 10px;
+    list-style: none;
+}
+
+.menu-items li {
+    margin: 30px 0;
+}
+
+.menu-items a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu-items a:hover {
+    color: var(--accent-color);
+}
+
+/* Animaciones para proyectos y servicios */
+.proyecto, .servicio {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.proyecto.visible, .servicio.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Resto del CSS existente */
+.hero {
+    text-align: center;
+    padding: 180px 20px 120px;
+    background: url('img/hero-bg.jpg') no-repeat center center/cover;
+}
+
+.welcome {
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-size: 4rem;
+    color: #fff;
+    margin: 30px 0;
+}
+
+.logo-container {
+    margin: 20px auto;
+}
+
+.logo {
+    width: 450px;
+    transition: transform 0.2s ease;
+}
+
+.slogan {
+    font-size: 1.6rem;
+    color: #fff;
+    max-width: 700px;
+    margin: 20px auto 0;
+    transition: 0.2s ease;
+}
+
+.proyectos {
+    padding: 100px 20px;
+}
+
+.proyecto {
+    margin-bottom: 60px;
+}
+
+.video-proyecto {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.servicios {
+    padding: 100px 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 60px;
+    color: #fff;
+}
+
+.servicio {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.servicio-1 {
+    background-image: url('img/fondo-servicio-1.jpg');
+}
+
+.servicio-2 {
+    background-image: url('img/fondo-servicio-2.jpg');
+}
+
+.servicio-3 {
+    background-image: url('img/fondo-servicio-3.jpg');
+}
+
+.servicio h3 {
+    font-size: 2rem;
+    color: #fff
+/*var(--accent-color);*/
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.boton {
+    display: block;
+    width: 200px;
+    margin: 25px auto 0;
+    padding: 12px 25px;
+    background: var(--accent-color);
+    color: #fff;
+    text-align: center;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer {
+    padding: 80px 20px 40px;
+    text-align: left;
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-logo {
+    text-align: right;
+}
+
+.logo-footer {
+    width: 150px;
+    height: auto;
+}
+
+.contacto-text {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(37, 211, 102, 0.7);
+    padding: 0px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background 0.3s ease;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-btn:hover {
+    background: rgba(37, 211, 102, 1);
+}
+
+.whatsapp-btn img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.whatsapp-btn:hover img {
+    opacity: 1;
+}
+
+.quienes-somos-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.quienes-somos-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.quienes-somos-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.quienes-somos-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+.team-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .logo {
+        width: 200px;
+    }
+    
+    .servicio {
+        padding: 25px;
+    }
+    
+    .video-proyecto {
+        height: 300px;
+    }
+
+    .proyecto {
+        margin-bottom: 40px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-top: 20px;
+        text-align: center;
+    }
+}
